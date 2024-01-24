@@ -1,0 +1,25 @@
+package com.alibaba.nacos.plugin.datasource.extension.impl.postgresql;
+
+import com.alibaba.nacos.plugin.datasource.constants.TableConstant;
+import com.alibaba.nacos.plugin.datasource.extension.constant.DataSourceConstantExtension;
+import com.alibaba.nacos.plugin.datasource.mapper.AbstractMapper;
+import com.alibaba.nacos.plugin.datasource.mapper.TenantInfoMapper;
+
+
+/**
+ * @Author Anson
+ * @Create 2023-10-25
+ * @Description <br/>
+ */
+
+public class TenantInfoMapperByPostgresql extends AbstractMapper implements TenantInfoMapper {
+    @Override
+    public String getTableName() {
+        return TableConstant.TENANT_INFO;
+    }
+
+    @Override
+    public String getDataSource() {
+        return DataSourceConstantExtension.POSTGRESQL;
+    }
+}

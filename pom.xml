@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.alibaba.nacos.plugin.datasource.extension</groupId>
+    <artifactId>nacos-datasource-plugin-extension</artifactId>
+    <version>${revision}</version>
+    <name>${project.artifactId}</name>
+
+    <licenses>
+        <license>
+            <name>The ApacheSoftware License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/GeorgeAnson/nacos-datasource-plugin-extension</url>
+        <connection>https://github.com/GeorgeAnson/nacos-datasource-plugin-extension.git</connection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Anson</name>
+            <email>georgeanson.gm@gmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <revision>${nacos.version}</revision>
+        <java.version>8</java.version>
+        <encoding>UTF-8</encoding>
+        <maven.test.skip>true</maven.test.skip>
+        <release.enabled>true</release.enabled>
+        <snapshots.enabled>false</snapshots.enabled>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+        <maven.compiler.encoding>${encoding}</maven.compiler.encoding>
+
+
+        <flatten.maven.plugin.version>1.5.0</flatten.maven.plugin.version>
+        <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
+        <maven.plugin.plugin.version>3.9.0</maven.plugin.plugin.version>
+        <maven.javadoc.plugin.version>3.6.3</maven.javadoc.plugin.version>
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+        <spring.javaformat.maven.plugin.version>0.0.39</spring.javaformat.maven.plugin.version>
+
+        <nacos.version>2.2.0</nacos.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-datasource-plugin</artifactId>
+            <version>${nacos.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-common</artifactId>
+            <version>${nacos.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>flatten-maven-plugin</artifactId>
+                    <version>${flatten.maven.plugin.version}</version>
+                    <configuration>
+                        <updatePomFile>true</updatePomFile>
+                        <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>flatten</id>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>flatten</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>flatten.clean</id>
+                            <phase>clean</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- 代码编译指定版本插件 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <target>${maven.compiler.target}</target>
+                        <source>${maven.compiler.source}</source>
+                        <skip>${maven.test.skip}</skip>
+                        <fork>true</fork>
+                        <verbose>true</verbose>
+                        <encoding>${encoding}</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven.source.plugin.version}</version>
+                    <configuration>
+                        <attach>true</attach>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven.javadoc.plugin.version}</version>
+                    <configuration>
+                        <quiet>true</quiet>
+                        <doclint>none</doclint>
+                        <charset>${encoding}</charset>
+                        <encoding>${encoding}</encoding>
+                        <docencoding>${encoding}</docencoding>
+                        <failOnError>false</failOnError>
+                        <tags>
+                            <tag>
+                                <name>Author</name>
+                                <placement>a</placement>
+                                <head>Author of the Class</head>
+                            </tag>
+                            <tag>
+                                <name>Create</name>
+                                <placement>a</placement>
+                                <head>Create Time of Class</head>
+                            </tag>
+                            <tag>
+                                <name>Description</name>
+                                <placement>a</placement>
+                                <head>Description of Class</head>
+                            </tag>
+                        </tags>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>javadocs</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
