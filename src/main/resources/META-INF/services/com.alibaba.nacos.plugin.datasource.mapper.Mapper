@@ -22,24 +22,24 @@ com.alibaba.nacos.plugin.datasource.impl.derby.TenantCapacityMapperByDerby
 com.alibaba.nacos.plugin.datasource.impl.derby.GroupCapacityMapperByDerby
 
 # DB2
-com.alibaba.nacos.plugin.datasource.extension.impl.db2.ConfigInfoAggrMapperByDb2
-com.alibaba.nacos.plugin.datasource.extension.impl.db2.ConfigInfoBetaMapperByDb2
-com.alibaba.nacos.plugin.datasource.extension.impl.db2.ConfigInfoMapperByDb2
-com.alibaba.nacos.plugin.datasource.extension.impl.db2.ConfigInfoTagMapperByDb2
-com.alibaba.nacos.plugin.datasource.extension.impl.db2.ConfigTagsRelationMapperByDb2
-com.alibaba.nacos.plugin.datasource.extension.impl.db2.HistoryConfigInfoMapperByDb2
-com.alibaba.nacos.plugin.datasource.extension.impl.db2.TenantInfoMapperByDb2
-com.alibaba.nacos.plugin.datasource.extension.impl.db2.TenantCapacityMapperByDb2
-com.alibaba.nacos.plugin.datasource.extension.impl.db2.GroupCapacityMapperByDb2
+io.github.georgeanson.impl.db2.ConfigInfoAggrMapperByDb2
+io.github.georgeanson.impl.db2.ConfigInfoBetaMapperByDb2
+io.github.georgeanson.impl.db2.ConfigInfoMapperByDb2
+io.github.georgeanson.impl.db2.ConfigInfoTagMapperByDb2
+io.github.georgeanson.impl.db2.ConfigTagsRelationMapperByDb2
+io.github.georgeanson.impl.db2.HistoryConfigInfoMapperByDb2
+io.github.georgeanson.impl.db2.TenantInfoMapperByDb2
+io.github.georgeanson.impl.db2.TenantCapacityMapperByDb2
+io.github.georgeanson.impl.db2.GroupCapacityMapperByDb2
 
 # Postgresql
-com.alibaba.nacos.plugin.datasource.extension.impl.postgresql.ConfigInfoAggrMapperByPostgresql
-com.alibaba.nacos.plugin.datasource.extension.impl.postgresql.ConfigInfoBetaMapperByPostgresql
-com.alibaba.nacos.plugin.datasource.extension.impl.postgresql.ConfigInfoMapperByPostgresql
-com.alibaba.nacos.plugin.datasource.extension.impl.postgresql.ConfigInfoTagMapperByPostgresql
-com.alibaba.nacos.plugin.datasource.extension.impl.postgresql.ConfigTagsRelationMapperByPostgresql
-com.alibaba.nacos.plugin.datasource.extension.impl.postgresql.HistoryConfigInfoMapperByPostgresql
-com.alibaba.nacos.plugin.datasource.extension.impl.postgresql.TenantInfoMapperByPostgresql
-com.alibaba.nacos.plugin.datasource.extension.impl.postgresql.TenantCapacityMapperByPostgresql
-com.alibaba.nacos.plugin.datasource.extension.impl.postgresql.GroupCapacityMapperByPostgresql
+io.github.georgeanson.impl.postgresql.ConfigInfoAggrMapperByPostgresql
+io.github.georgeanson.impl.postgresql.ConfigInfoBetaMapperByPostgresql
+io.github.georgeanson.impl.postgresql.ConfigInfoMapperByPostgresql
+io.github.georgeanson.impl.postgresql.ConfigInfoTagMapperByPostgresql
+io.github.georgeanson.impl.postgresql.ConfigTagsRelationMapperByPostgresql
+io.github.georgeanson.impl.postgresql.HistoryConfigInfoMapperByPostgresql
+io.github.georgeanson.impl.postgresql.TenantInfoMapperByPostgresql
+io.github.georgeanson.impl.postgresql.TenantCapacityMapperByPostgresql
+io.github.georgeanson.impl.postgresql.GroupCapacityMapperByPostgresql
 

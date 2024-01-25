@@ -6,8 +6,8 @@
 
 
 <p align="center">
-  <a href="https://search.maven.org/search?q=g:com.alibaba.nacos.plugin.datasource.extension%20a:nacos-datasource-plugin-extension">
-    <img alt="maven" src="https://img.shields.io/maven-central/v/com.alibaba.nacos.plugin.datasource.extension/nacos-datasource-plugin-extension.svg?style=flat-square">
+  <a href="https://search.maven.org/search?q=g:io.github.georgeanson%20a:nacos-datasource-plugin-extension">
+    <img alt="maven" src="https://img.shields.io/maven-central/v/io.github.georgeanson/nacos-datasource-plugin-extension.svg?style=flat-square">
   </a>
 
   <a href="https://www.apache.org/licenses/LICENSE-2.0">
@@ -29,11 +29,11 @@ nacos-datasource-plugin的扩展插件，支持nacos-datasource-plugin-extension
 ## 使用
 
 -   添加 `nacos-datasource-plugin-extension` 依赖
-    - 最新版本: [![Maven Central](https://img.shields.io/maven-central/v/com.alibaba.nacos.plugin.datasource.extension/nacos-datasource-plugin-extension.svg)](https://search.maven.org/search?q=g:com.alibaba.nacos.plugin.datasource.extension%20a:nacos-datasource-plugin-extension)
+    - 最新版本: [![Maven Central](https://img.shields.io/maven-central/v/io.github.georgeanson/nacos-datasource-plugin-extension.svg)](https://search.maven.org/search?q=g:io.github.georgeanson%20a:nacos-datasource-plugin-extension)
     - Maven:
       ```xml
       <dependency>
-          <groupId>com.alibaba.nacos.plugin.datasource.extension</groupId>
+          <groupId>io.github.georgeanson</groupId>
           <artifactId>nacos-datasource-plugin-extension</artifactId>
           <version>Latest Version</version>
       </dependency>
@@ -41,7 +41,7 @@ nacos-datasource-plugin的扩展插件，支持nacos-datasource-plugin-extension
 
 -    Gradle
       ```groovy
-      compile group: 'com.alibaba.nacos.plugin.datasource.extensionu', name: 'nacos-datasource-plugin-extension', version: 'Latest Version'
+      compile group: 'io.github.georgeansonu', name: 'nacos-datasource-plugin-extension', version: 'Latest Version'
       ```
 
 -    Yaml配置。 **以下是一个示例配配置，使用 `db2` 数据库作为外部存储（本项目不新增任何其他非`nacos`原生配置）**
@@ -68,7 +68,7 @@ nacos-datasource-plugin的扩展插件，支持nacos-datasource-plugin-extension
 - [Nacos](https://github.com/alibaba/nacos)
 
 
-## 最新版本: [![Maven Central](https://img.shields.io/maven-central/v/com.alibaba.nacos.plugin.datasource.extension/nacos-datasource-plugin-extension.svg)](https://search.maven.org/search?q=g:com.alibaba.nacos.plugin.datasource.extension%20a:nacos-datasource-plugin-extension)
+## 最新版本: [![Maven Central](https://img.shields.io/maven-central/v/io.github.georgeanson/nacos-datasource-plugin-extension.svg)](https://search.maven.org/search?q=g:io.github.georgeanson%20a:nacos-datasource-plugin-extension)
 
 
 ## 其他

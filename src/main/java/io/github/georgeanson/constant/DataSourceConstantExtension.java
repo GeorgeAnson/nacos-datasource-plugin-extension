@@ -1,4 +1,4 @@
-package com.alibaba.nacos.plugin.datasource.extension.constant;
+package io.github.georgeanson.constant;
 
 import com.alibaba.nacos.plugin.datasource.constants.DataSourceConstant;
 

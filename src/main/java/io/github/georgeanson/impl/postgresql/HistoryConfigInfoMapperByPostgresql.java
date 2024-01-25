@@ -1,7 +1,7 @@
-package com.alibaba.nacos.plugin.datasource.extension.impl.postgresql;
+package io.github.georgeanson.impl.postgresql;
 
 import com.alibaba.nacos.plugin.datasource.constants.TableConstant;
-import com.alibaba.nacos.plugin.datasource.extension.constant.DataSourceConstantExtension;
+import io.github.georgeanson.constant.DataSourceConstantExtension;
 import com.alibaba.nacos.plugin.datasource.mapper.AbstractMapper;
 import com.alibaba.nacos.plugin.datasource.mapper.HistoryConfigInfoMapper;
 

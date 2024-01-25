@@ -6,8 +6,8 @@
 
 
 <p align="center">
-  <a href="https://search.maven.org/search?q=g:com.alibaba.nacos.plugin.datasource.extension%20a:nacos-datasource-plugin-extension">
-    <img alt="maven" src="https://img.shields.io/maven-central/v/com.alibaba.nacos.plugin.datasource.extension/nacos-datasource-plugin-extension.svg?style=flat-square">
+  <a href="https://search.maven.org/search?q=g:io.github.georgeanson%20a:nacos-datasource-plugin-extension">
+    <img alt="maven" src="https://img.shields.io/maven-central/v/io.github.georgeanson/nacos-datasource-plugin-extension.svg?style=flat-square">
   </a>
 
   <a href="https://www.apache.org/licenses/LICENSE-2.0">
@@ -28,11 +28,11 @@ A extension plugin of nacos-datasource-plugin which support nacos-datasource-plu
 ## Getting started
 
 -   Add nacos-datasource-plugin-extension dependency
-    - Latest Version: [![Maven Central](https://img.shields.io/maven-central/v/com.alibaba.nacos.plugin.datasource.extension/nacos-datasource-plugin-extension.svg)](https://search.maven.org/search?q=g:com.alibaba.nacos.plugin.datasource.extension%20a:nacos-datasource-plugin-extension)
+    - Latest Version: [![Maven Central](https://img.shields.io/maven-central/v/io.github.georgeanson/nacos-datasource-plugin-extension.svg)](https://search.maven.org/search?q=g:io.github.georgeanson%20a:nacos-datasource-plugin-extension)
     - Maven:
       ```xml
       <dependency>
-          <groupId>com.alibaba.nacos.plugin.datasource.extension</groupId>
+          <groupId>io.github.georgeanson</groupId>
           <artifactId>nacos-datasource-plugin-extension</artifactId>
           <version>Latest Version</version>
       </dependency>
@@ -40,7 +40,7 @@ A extension plugin of nacos-datasource-plugin which support nacos-datasource-plu
 
 -    Gradle
       ```groovy
-      compile group: 'com.alibaba.nacos.plugin.datasource.extensionu', name: 'nacos-datasource-plugin-extension', version: 'Latest Version'
+      compile group: 'io.github.georgeansonu', name: 'nacos-datasource-plugin-extension', version: 'Latest Version'
       ```
       
 -    Use it. **Just use original configuration, eg: use `db2` as external storage**
@@ -71,7 +71,7 @@ nacos-datasource-plugin-extension is released under Apache License 2.0. Please r
 - [Nacos](https://github.com/alibaba/nacos)
 
 
-## Latest Version: [![Maven Central](https://img.shields.io/maven-central/v/com.alibaba.nacos.plugin.datasource.extension/nacos-datasource-plugin-extension.svg)](https://search.maven.org/search?q=g:com.alibaba.nacos.plugin.datasource.extension%20a:nacos-datasource-plugin-extension)
+## Latest Version: [![Maven Central](https://img.shields.io/maven-central/v/io.github.georgeanson/nacos-datasource-plugin-extension.svg)](https://search.maven.org/search?q=g:io.github.georgeanson%20a:nacos-datasource-plugin-extension)
 
 
 ## Others
