@@ -40,7 +40,7 @@ A extension plugin of nacos-datasource-plugin which support nacos-datasource-plu
 
 -    Gradle
       ```groovy
-      compile group: 'io.github.georgeansonu', name: 'nacos-datasource-plugin-extension', version: 'Latest Version'
+      compile group: 'io.github.georgeanson', name: 'nacos-datasource-plugin-extension', version: 'Latest Version'
       ```
       
 -    Use it. **Just use original configuration, eg: use `db2` as external storage**

@@ -41,7 +41,7 @@ nacos-datasource-plugin的扩展插件，支持nacos-datasource-plugin-extension
 
 -    Gradle
       ```groovy
-      compile group: 'io.github.georgeansonu', name: 'nacos-datasource-plugin-extension', version: 'Latest Version'
+      compile group: 'io.github.georgeanson', name: 'nacos-datasource-plugin-extension', version: 'Latest Version'
       ```
 
 -    Yaml配置。 **以下是一个示例配配置，使用 `db2` 数据库作为外部存储（本项目不新增任何其他非`nacos`原生配置）**
