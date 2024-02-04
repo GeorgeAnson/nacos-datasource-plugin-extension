@@ -15,7 +15,7 @@
   </a>
 </p>
 
-nacos-datasource-plugin的扩展插件，支持nacos-datasource-plugin-extension使用postgresql数据库和DB2数据库。
+nacos-datasource-plugin的扩展插件，支持nacos-datasource-plugin使用postgresql数据库和DB2数据库。
 
 **注：** 仅对原有插件功能进行了增强，没有做任何改动。
 

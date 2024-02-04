@@ -15,7 +15,7 @@
   </a>
 </p>
 
-A extension plugin of nacos-datasource-plugin which support nacos-datasource-plugin-extension to use postgresql database and DB2 database。
+A extension plugin of nacos-datasource-plugin which support nacos-datasource-plugin to use postgresql database and DB2 database。
 
 **Note:** Only the original plug-in functions have been enhanced without any changes.
 
