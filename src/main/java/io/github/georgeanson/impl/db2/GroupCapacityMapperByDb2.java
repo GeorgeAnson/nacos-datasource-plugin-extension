@@ -16,50 +16,50 @@ public class GroupCapacityMapperByDb2 extends AbstractMapper implements GroupCap
 
     @Override
     public String insertIntoSelect() {
-        return "INSERT INTO QRCB_CONFIG.GROUP_CAPACITY (group_id, quota, usage, max_size, max_aggr_count, max_aggr_size,gmt_create,"
-                + " gmt_modified) SELECT ?, ?, count(*), ?, ?, ?, ?, ? FROM QRCB_CONFIG.CONFIG_INFO";
+        return "INSERT INTO GROUP_CAPACITY (group_id, quota, usage, max_size, max_aggr_count, max_aggr_size,gmt_create,"
+                + " gmt_modified) SELECT ?, ?, count(*), ?, ?, ?, ?, ? FROM CONFIG_INFO";
     }
 
     @Override
     public String insertIntoSelectByWhere() {
-        return "INSERT INTO QRCB_CONFIG.GROUP_CAPACITY (group_id, quota,usage, max_size, max_aggr_count, max_aggr_size, gmt_create,"
-                + " gmt_modified) SELECT ?, ?, count(*), ?, ?, ?, ?, ? FROM QRCB_CONFIG.CONFIG_INFO WHERE group_id=? AND tenant_id = ''";
+        return "INSERT INTO GROUP_CAPACITY (group_id, quota,usage, max_size, max_aggr_count, max_aggr_size, gmt_create,"
+                + " gmt_modified) SELECT ?, ?, count(*), ?, ?, ?, ?, ? FROM CONFIG_INFO WHERE group_id=? AND tenant_id = ''";
     }
 
     @Override
     public String incrementUsageByWhereQuotaNotEqualZero() {
-        return "UPDATE QRCB_CONFIG.GROUP_CAPACITY SET usage = usage + 1, gmt_modified = ? WHERE group_id = ? AND usage < quota AND quota != 0";
+        return "UPDATE GROUP_CAPACITY SET usage = usage + 1, gmt_modified = ? WHERE group_id = ? AND usage < quota AND quota != 0";
     }
 
     @Override
     public String incrementUsageByWhereQuotaEqualZero() {
-        return "UPDATE QRCB_CONFIG.GROUP_CAPACITY SET usage = usage + 1, gmt_modified = ? WHERE group_id = ? AND usage < ? AND quota = 0";
+        return "UPDATE GROUP_CAPACITY SET usage = usage + 1, gmt_modified = ? WHERE group_id = ? AND usage < ? AND quota = 0";
     }
 
     @Override
     public String incrementUsageByWhere() {
-        return "UPDATE QRCB_CONFIG.GROUP_CAPACITY SET usage = usage + 1, gmt_modified = ? WHERE group_id = ?";
+        return "UPDATE GROUP_CAPACITY SET usage = usage + 1, gmt_modified = ? WHERE group_id = ?";
     }
 
     @Override
     public String decrementUsageByWhere() {
-        return "UPDATE QRCB_CONFIG.GROUP_CAPACITY SET usage = usage - 1, gmt_modified = ? WHERE group_id = ? AND usage > 0";
+        return "UPDATE GROUP_CAPACITY SET usage = usage - 1, gmt_modified = ? WHERE group_id = ? AND usage > 0";
     }
 
     @Override
     public String updateUsage() {
-        return "UPDATE QRCB_CONFIG.GROUP_CAPACITY SET usage = (SELECT count(*) FROM QRCB_CONFIG.CONFIG_INFO), gmt_modified = ? WHERE group_id = ?";
+        return "UPDATE GROUP_CAPACITY SET usage = (SELECT count(*) FROM CONFIG_INFO), gmt_modified = ? WHERE group_id = ?";
     }
 
     @Override
     public String updateUsageByWhere() {
-        return "UPDATE QRCB_CONFIG.GROUP_CAPACITY SET usage = (SELECT count(*) FROM QRCB_CONFIG.CONFIG_INFO WHERE group_id=? AND tenant_id = ''),"
+        return "UPDATE GROUP_CAPACITY SET usage = (SELECT count(*) FROM CONFIG_INFO WHERE group_id=? AND tenant_id = ''),"
                 + " gmt_modified = ? WHERE group_id= ?";
     }
 
     @Override
     public String selectGroupInfoBySize() {
-        return "SELECT id, group_id FROM QRCB_CONFIG.GROUP_CAPACITY WHERE id > ? LIMIT ?";
+        return "SELECT id, group_id FROM GROUP_CAPACITY WHERE id > ? LIMIT ?";
     }
 
     @Override
