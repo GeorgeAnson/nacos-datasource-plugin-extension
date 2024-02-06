@@ -30,14 +30,14 @@ public class ConfigInfoAggrMapperByDb2 extends AbstractMapper implements ConfigI
             }
             placeholderString.append('?');
         }
-        return "DELETE FROM CONFIG_INFO_AGGR WHERE data_id = ? AND group_id = ? AND tenant_id = ? AND datum_id IN ("
+        return "DELETE FROM CONFIG_INFO_AGGR WHERE DATA_ID = ? AND GROUP_ID = ? AND TENANT_ID = ? AND DATUM_ID IN ("
                 + placeholderString + ")";
     }
 
     @Override
     public String aggrConfigInfoCount(int size, boolean isIn) {
         StringBuilder sql = new StringBuilder(
-                "SELECT count(*) FROM CONFIG_INFO_AGGR WHERE data_id = ? AND group_id = ? AND tenant_id = ? AND datum_id");
+                "SELECT COUNT(*) FROM CONFIG_INFO_AGGR WHERE DATA_ID = ? AND GROUP_ID = ? AND TENANT_ID = ? AND DATUM_ID");
         if (isIn) {
             sql.append(" IN (");
         } else {
@@ -56,19 +56,19 @@ public class ConfigInfoAggrMapperByDb2 extends AbstractMapper implements ConfigI
 
     @Override
     public String findConfigInfoAggrIsOrdered() {
-        return "SELECT data_id,group_id,tenant_id,datum_id,app_name,content FROM "
-                + "CONFIG_INFO_AGGR WHERE data_id = ? AND group_id = ? AND tenant_id = ? ORDER BY datum_id";
+        return "SELECT DATA_ID,GROUP_ID,TENANT_ID,DATUM_ID,APP_NAME,CONTENT FROM "
+                + "CONFIG_INFO_AGGR WHERE DATA_ID = ? AND GROUP_ID = ? AND TENANT_ID = ? ORDER BY DATUM_ID";
     }
 
     @Override
     public String findConfigInfoAggrByPageFetchRows(int startRow, int pageSize) {
-        return "SELECT data_id,group_id,tenant_id,datum_id,app_name,content FROM CONFIG_INFO_AGGR WHERE data_id= ? AND "
-                + "group_id= ? AND tenant_id= ? ORDER BY datum_id LIMIT " + pageSize + " OFFSET " + startRow;
+        return "SELECT DATA_ID,GROUP_ID,TENANT_ID,DATUM_ID,APP_NAME,CONTENT FROM CONFIG_INFO_AGGR WHERE DATA_ID= ? AND "
+                + "GROUP_ID= ? AND TENANT_ID= ? ORDER BY DATUM_ID LIMIT " + pageSize + " OFFSET " + startRow;
     }
 
     @Override
     public String findAllAggrGroupByDistinct() {
-        return "SELECT DISTINCT data_id, group_id, tenant_id FROM CONFIG_INFO_AGGR";
+        return "SELECT DISTINCT DATA_ID, GROUP_ID, TENANT_ID FROM CONFIG_INFO_AGGR";
     }
 
     @Override
