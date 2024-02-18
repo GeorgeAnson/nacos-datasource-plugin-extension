@@ -15,15 +15,15 @@ public class ConfigInfoBetaMapperByOracle extends AbstractMapper implements Conf
 
     @Override
     public String updateConfigInfo4BetaCas() {
-        return "UPDATE config_info_beta SET content = ?,md5 = ?,beta_ips = ?,src_ip = ?,src_user = ?,gmt_modified = ?,app_name = ? "
-                + "WHERE data_id = ? AND group_id = ? AND (tenant_id = ? OR tenant_id IS NULL) AND (md5 = ? or md5 is null or md5 = '')";
+        return "UPDATE CONFIG_INFO_BETA SET CONTENT = ?,MD5 = ?,BETA_IPS = ?,SRC_IP = ?,SRC_USER = ?,GMT_MODIFIED = ?,APP_NAME = ? "
+                + "WHERE DATA_ID = ? AND GROUP_ID = ? AND (TENANT_ID = ? OR TENANT_ID IS NULL) AND (MD5 = ? OR MD5 IS NULL OR MD5 = '')";
     }
 
     @Override
     public String findAllConfigInfoBetaForDumpAllFetchRows(int startRow, int pageSize) {
-        return "SELECT t.id,data_id,group_id,tenant_id,app_name,content,md5,gmt_modified,beta_ips,encrypted_data_key "
-                + " FROM ( SELECT rownum ROW_ID,id FROM config_info_beta  WHERE  ROW_ID<= " + (startRow + pageSize)
-                + " ORDER BY id )" + "  g, config_info_beta t WHERE g.id = t.id AND g.ROW_ID > " + startRow;
+        return "SELECT T.ID,DATA_ID,GROUP_ID,TENANT_ID,APP_NAME,CONTENT,MD5,GMT_MODIFIED,BETA_IPS,ENCRYPTED_DATA_KEY "
+                + " FROM ( SELECT ROWNUM ROW_ID,ID FROM CONFIG_INFO_BETA  WHERE  ROW_ID<= " + (startRow + pageSize)
+                + " ORDER BY ID )" + "  G, CONFIG_INFO_BETA T WHERE G.ID = T.ID AND G.ROW_ID > " + startRow;
     }
 
     @Override

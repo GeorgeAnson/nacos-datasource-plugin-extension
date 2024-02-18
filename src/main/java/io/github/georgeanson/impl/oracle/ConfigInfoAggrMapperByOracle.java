@@ -28,14 +28,14 @@ public class ConfigInfoAggrMapperByOracle extends AbstractMapper implements Conf
             datumString.append('\'').append(datum).append("',");
         }
         datumString.deleteCharAt(datumString.length() - 1);
-        return "DELETE FROM config_info_aggr WHERE data_id = ? AND group_id = ? AND (tenant_id = ? OR tenant_id IS NULL) AND datum_id IN ("
+        return "DELETE FROM CONFIG_INFO_AGGE WHERE DATA_ID = ? AND GROUP_ID = ? AND (TENANT_ID = ? OR TENANT_ID IS NULL) AND DATUM_ID IN ("
                 + datumString + ")";
     }
 
     @Override
     public String aggrConfigInfoCount(int size, boolean isIn) {
         StringBuilder sql = new StringBuilder(
-                "SELECT count(*) FROM config_info_aggr WHERE data_id = ? AND group_id = ? AND (tenant_id = ? OR tenant_id IS NULL) AND datum_id");
+                "SELECT COUNT(*) FROM CONFIG_INFO_AGGE WHERE DATA_ID = ? AND GROUP_ID = ? AND (TENANT_ID = ? OR TENANT_ID IS NULL) AND DATUM_ID");
         if (isIn) {
             sql.append(" IN (");
         }
@@ -55,22 +55,22 @@ public class ConfigInfoAggrMapperByOracle extends AbstractMapper implements Conf
 
     @Override
     public String findConfigInfoAggrIsOrdered() {
-        return "SELECT data_id,group_id,tenant_id,datum_id,app_name,content FROM "
-                + "config_info_aggr WHERE data_id = ? AND group_id = ? AND (tenant_id = ? OR tenant_id IS NULL) ORDER BY datum_id";
+        return "SELECT DATA_ID,GROUP_ID,TENANT_ID,DATUM_ID,APP_NAME,CONTENT FROM "
+                + "CONFIG_INFO_AGGE WHERE DATA_ID = ? AND GROUP_ID = ? AND (TENANT_ID = ? OR TENANT_ID IS NULL) ORDER BY DATUM_ID";
     }
 
     @Override
     public String findConfigInfoAggrByPageFetchRows(int startRow, int pageSize) {
         return "SELECT * FROM (" +
                     "SELECT TMP.*, ROWNUM RN FROM ("
-                        +"SELECT data_id,group_id,tenant_id,datum_id,app_name,content FROM config_info_aggr WHERE data_id= ? AND group_id= ? AND (tenant_id= ? OR tenant_id IS NULL) ORDER BY datum_id"+
+                        +"SELECT DATA_ID,GROUP_ID,TENANT_ID,DATUM_ID,APP_NAME,CONTENT FROM CONFIG_INFO_AGGE WHERE DATA_ID= ? AND GROUP_ID= ? AND (TENANT_ID= ? OR TENANT_ID IS NULL) ORDER BY DATUM_ID"+
                     ")TMP WHERE ROWNUM <= " +(startRow + pageSize)+
                 ") WHERE RN >= "+startRow;
     }
 
     @Override
     public String findAllAggrGroupByDistinct() {
-        return "SELECT DISTINCT data_id, group_id, tenant_id FROM config_info_aggr";
+        return "SELECT DISTINCT DATA_ID, GROUP_ID, TENANT_ID FROM CONFIG_INFO_AGGE";
     }
 
     @Override
