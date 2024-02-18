@@ -14,15 +14,15 @@ import io.github.georgeanson.constant.DataSourceConstantExtension;
 public class ConfigInfoTagMapperByOracle extends AbstractMapper implements ConfigInfoTagMapper  {
     @Override
     public String updateConfigInfo4TagCas() {
-        return "UPDATE config_info_tag SET content = ?, md5 = ?, src_ip = ?,src_user = ?,gmt_modified = ?,app_name = ? "
-                + "WHERE data_id = ? AND group_id = ? AND (tenant_id = ? OR tenant_id IS NULL) AND tag_id = ? AND (md5 = ? OR md5 IS NULL OR md5 = '')";
+        return "UPDATE CONFIG_INFO_TAG SET CONTENT = ?, MD5 = ?, SRC_IP = ?,SRC_USER = ?,GMT_MODIFIED = ?,APP_NAME = ? "
+                + "WHERE DATA_ID = ? AND GROUP_ID = ? AND (TENANT_ID = ? OR TENANT_ID IS NULL) AND TAG_ID = ? AND (MD5 = ? OR MD5 IS NULL OR MD5 = '')";
     }
 
     @Override
     public String findAllConfigInfoTagForDumpAllFetchRows(int startRow, int pageSize) {
-        return " SELECT t.id,data_id,group_id,tenant_id,tag_id,app_name,content,md5,gmt_modified "
-                + " FROM (  SELECT id FROM config_info_tag WHERE  ROWNUM > " + startRow + " AND ROWNUM <="
-                + (startRow + pageSize) + "ORDER BY id   " + " ) " + "g, config_info_tag t  WHERE g.id = t.id  ";
+        return " SELECT T.ID,DATA_ID,GROUP_ID,TENANT_ID,TAG_ID,APP_NAME,CONTENT,MD5,GMT_MODIFIED "
+                + " FROM (  SELECT ID FROM CONFIG_INFO_TAG WHERE  ROWNUM > " + startRow + " AND ROWNUM <="
+                + (startRow + pageSize) + "ORDER BY ID   " + " ) " + "G, CONFIG_INFO_TAG T  WHERE G.ID = T.ID  ";
     }
 
     @Override
