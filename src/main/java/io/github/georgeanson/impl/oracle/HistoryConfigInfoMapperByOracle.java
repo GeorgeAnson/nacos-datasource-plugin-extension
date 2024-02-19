@@ -14,29 +14,29 @@ import io.github.georgeanson.constant.DataSourceConstantExtension;
 public class HistoryConfigInfoMapperByOracle extends AbstractMapper implements HistoryConfigInfoMapper {
     @Override
     public String removeConfigHistory() {
-        return "DELETE FROM his_config_info WHERE gmt_modified < ? AND ROWNUM > ?";
+        return "DELETE FROM HIS_CONFIG_INFO WHERE GMT_MODIFIED < ? AND ROWNUM > ?";
     }
 
     @Override
     public String findConfigHistoryCountByTime() {
-        return "SELECT count(*) FROM his_config_info WHERE gmt_modified < ?";
+        return "SELECT COUNT(*) FROM HIS_CONFIG_INFO WHERE GMT_MODIFIED < ?";
     }
 
     @Override
     public String findDeletedConfig() {
-        return "SELECT DISTINCT data_id, group_id, tenant_id FROM his_config_info WHERE op_type = 'D' AND gmt_modified >= ? AND gmt_modified <= ?";
+        return "SELECT DISTINCT DATA_ID, GROUP_ID, TENANT_ID FROM HIS_CONFIG_INFO WHERE OP_TYPE = 'D' AND GMT_MODIFIED >= ? AND GMT_MODIFIED <= ?";
     }
 
     @Override
     public String findConfigHistoryFetchRows() {
-        return "SELECT nid,data_id,group_id,tenant_id,app_name,src_ip,src_user,op_type,gmt_create,gmt_modified FROM his_config_info "
-                + "WHERE data_id = ? AND group_id = ? AND (tenant_id = ? OR tenant_id IS NULL) ORDER BY nid DESC";
+        return "SELECT NID,DATA_ID,GROUP_ID,TENANT_ID,APP_NAME,SRC_IP,SRC_USER,OP_TYPE,GMT_CREATE,GMT_MODIFIED FROM HIS_CONFIG_INFO "
+                + "WHERE DATA_ID = ? AND GROUP_ID = ? AND (TENANT_ID = ? OR TENANT_ID IS NULL) ORDER BY NID DESC";
     }
 
     @Override
     public String detailPreviousConfigHistory() {
-        return "SELECT nid,data_id,group_id,tenant_id,app_name,content,md5,src_user,src_ip,op_type,gmt_create,gmt_modified "
-                + "FROM his_config_info WHERE nid = (SELECT max(nid) FROM his_config_info WHERE id = ?) ";
+        return "SELECT NID,DATA_ID,GROUP_ID,TENANT_ID,APP_NAME,CONTENT,MD5,SRC_USER,SRC_IP,OP_TYPE,GMT_CREATE,GMT_MODIFIED "
+                + "FROM HIS_CONFIG_INFO WHERE NID = (SELECT max(NID) FROM HIS_CONFIG_INFO WHERE ID = ?) ";
     }
 
     @Override
