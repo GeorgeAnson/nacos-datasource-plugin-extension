@@ -21,18 +21,18 @@ public class ConfigTagsRelationMapperByOracle extends AbstractMapper implements 
         final String dataId = params.get("dataId");
         final String group = params.get("group");
         StringBuilder where = new StringBuilder(" WHERE ");
-        final String sqlCount = "SELECT count(*) FROM config_info  a LEFT JOIN config_tags_relation b ON a.id=b.id";
-        where.append(" (a.tenant_id=? OR a.tenant_id IS NULL)");
+        final String sqlCount = "SELECT COUNT(*) FROM CONFIG_INFO A LEFT JOIN CONFIG_TAGS_RELATION B ON A.ID=B.ID";
+        where.append(" (A.TENANT_ID=? OR A.TENANT_ID IS NULL)");
         if (StringUtils.isNotBlank(dataId)) {
-            where.append(" AND a.data_id=? ");
+            where.append(" AND A.DATA_ID=? ");
         }
         if (StringUtils.isNotBlank(group)) {
-            where.append(" AND a.group_id=? ");
+            where.append(" AND A.GROUP_ID=? ");
         }
         if (StringUtils.isNotBlank(appName)) {
-            where.append(" AND a.app_name=? ");
+            where.append(" AND A.APP_NAME=? ");
         }
-        where.append(" AND b.tag_name IN (");
+        where.append(" AND B.TAG_NAME IN (");
         for (int i = 0; i < tagSize; i++) {
             if (i != 0) {
                 where.append(", ");
@@ -49,22 +49,22 @@ public class ConfigTagsRelationMapperByOracle extends AbstractMapper implements 
         final String dataId = params.get("dataId");
         final String group = params.get("group");
         StringBuilder where = new StringBuilder(" WHERE ");
-        final String sql = "SELECT a.id,a.data_id,a.group_id,a.tenant_id,a.app_name,a.content FROM config_info  a LEFT JOIN "
-                + "config_tags_relation b ON a.id=b.id";
+        final String sql = "SELECT A.ID,A.DATA_ID,A.GROUP_ID,A.TENANT_ID,A.APP_NAME,A.CONTENT FROM CONFIG_INFO A LEFT JOIN "
+                + "CONFIG_TAGS_RELATION B ON A.ID=B.ID";
 
-        where.append("( a.tenant_id=? OR tenant_id IS NULL)");
+        where.append("( A.TENANT_ID=? OR TENANT_ID IS NULL)");
 
         if (StringUtils.isNotBlank(dataId)) {
-            where.append(" AND a.data_id=? ");
+            where.append(" AND A.DATA_ID=? ");
         }
         if (StringUtils.isNotBlank(group)) {
-            where.append(" AND a.group_id=? ");
+            where.append(" AND A.GROUP_ID=? ");
         }
         if (StringUtils.isNotBlank(appName)) {
-            where.append(" AND a.app_name=? ");
+            where.append(" AND A.APP_NAME=? ");
         }
 
-        where.append(" AND b.tag_name IN (");
+        where.append(" AND B.TAG_NAME IN (");
         for (int i = 0; i < tagSize; i++) {
             if (i != 0) {
                 where.append(", ");
@@ -78,27 +78,27 @@ public class ConfigTagsRelationMapperByOracle extends AbstractMapper implements 
     @Override
     public String findConfigInfoLike4PageCountRows(Map<String, String> params, int tagSize) {
         final String appName = params.get("appName");
-        final String content = params.get("content");
+        final String CONTENT = params.get("CONTENT");
         final String dataId = params.get("dataId");
         final String group = params.get("group");
         StringBuilder where = new StringBuilder(" WHERE ");
-        final String sqlCountRows = "SELECT count(*) FROM config_info  a LEFT JOIN config_tags_relation b ON a.id=b.id ";
+        final String sqlCountRows = "SELECT COUNT(*) FROM CONFIG_INFO A LEFT JOIN CONFIG_TAGS_RELATION B ON A.ID=B.ID ";
 
-        where.append(" a.(tenant_id LIKE ? OR tenant_id IS NULL) ");
+        where.append(" A.(TENANT_ID LIKE ? OR TENANT_ID IS NULL) ");
         if (!StringUtils.isBlank(dataId)) {
-            where.append(" AND a.data_id LIKE ? ");
+            where.append(" AND A.DATA_ID LIKE ? ");
         }
         if (!StringUtils.isBlank(group)) {
-            where.append(" AND a.group_id LIKE ? ");
+            where.append(" AND A.GROUP_ID LIKE ? ");
         }
         if (!StringUtils.isBlank(appName)) {
-            where.append(" AND a.app_name = ? ");
+            where.append(" AND A.APP_NAME = ? ");
         }
-        if (!StringUtils.isBlank(content)) {
-            where.append(" AND a.content LIKE ? ");
+        if (!StringUtils.isBlank(CONTENT)) {
+            where.append(" AND A.CONTENT LIKE ? ");
         }
 
-        where.append(" AND b.tag_name IN (");
+        where.append(" AND B.TAG_NAME IN (");
         for (int i = 0; i < tagSize; i++) {
             if (i != 0) {
                 where.append(", ");
@@ -112,28 +112,28 @@ public class ConfigTagsRelationMapperByOracle extends AbstractMapper implements 
     @Override
     public String findConfigInfoLike4PageFetchRows(Map<String, String> params, int tagSize, int startRow, int pageSize) {
         final String appName = params.get("appName");
-        final String content = params.get("content");
+        final String CONTENT = params.get("CONTENT");
         final String dataId = params.get("dataId");
         final String group = params.get("group");
         StringBuilder where = new StringBuilder(" WHERE ");
-        final String sqlFetchRows = "SELECT a.id,a.data_id,a.group_id,a.tenant_id,a.app_name,a.content "
-                + "FROM config_info a LEFT JOIN config_tags_relation b ON a.id=b.id ";
+        final String sqlFetchRows = "SELECT A.ID,A.DATA_ID,A.GROUP_ID,A.TENANT_ID,A.APP_NAME,A.CONTENT "
+                + "FROM CONFIG_INFO A LEFT JOIN CONFIG_TAGS_RELATION B ON A.ID=B.ID ";
 
-        where.append(" a.(tenant_id LIKE ? OR tenant_id IS NULL) ");
+        where.append(" A.(TENANT_ID LIKE ? OR TENANT_ID IS NULL) ");
         if (!StringUtils.isBlank(dataId)) {
-            where.append(" AND a.data_id LIKE ? ");
+            where.append(" AND A.DATA_ID LIKE ? ");
         }
         if (!StringUtils.isBlank(group)) {
-            where.append(" AND a.group_id LIKE ? ");
+            where.append(" AND A.GROUP_ID LIKE ? ");
         }
         if (!StringUtils.isBlank(appName)) {
-            where.append(" AND a.app_name = ? ");
+            where.append(" AND A.APP_NAME = ? ");
         }
-        if (!StringUtils.isBlank(content)) {
-            where.append(" AND a.content LIKE ? ");
+        if (!StringUtils.isBlank(CONTENT)) {
+            where.append(" AND A.CONTENT LIKE ? ");
         }
 
-        where.append(" AND b.tag_name IN (");
+        where.append(" AND B.TAG_NAME IN (");
         for (int i = 0; i < tagSize; i++) {
             if (i != 0) {
                 where.append(", ");
