@@ -1,22 +1,20 @@
-package io.github.georgeanson.impl.db2;
+package io.github.georgeanson.impl.oracle;
 
 import com.alibaba.nacos.plugin.datasource.constants.TableConstant;
-import io.github.georgeanson.constant.DataSourceConstantExtension;
 import com.alibaba.nacos.plugin.datasource.mapper.AbstractMapper;
 import com.alibaba.nacos.plugin.datasource.mapper.HistoryConfigInfoMapper;
-
+import io.github.georgeanson.constant.DataSourceConstantExtension;
 
 /**
  * @Author Anson
- * @Create 2023-10-25
+ * @Create 2024-02-06
  * @Description <br/>
  */
 
-public class HistoryConfigInfoMapperByDb2 extends AbstractMapper implements HistoryConfigInfoMapper {
-
+public class HistoryConfigInfoMapperByOracle extends AbstractMapper implements HistoryConfigInfoMapper {
     @Override
     public String removeConfigHistory() {
-        return "DELETE FROM HIS_CONFIG_INFO WHERE GMT_MODIFIED < ? LIMIT ?";
+        return "DELETE FROM HIS_CONFIG_INFO WHERE GMT_MODIFIED < ? AND ROWNUM > ?";
     }
 
     @Override
@@ -26,20 +24,13 @@ public class HistoryConfigInfoMapperByDb2 extends AbstractMapper implements Hist
 
     @Override
     public String findDeletedConfig() {
-        return "SELECT DISTINCT DATA_ID,GROUP_ID,TENANT_ID FROM HIS_CONFIG_INFO WHERE OP_TYPE = 'D' AND GMT_MODIFIED >= ? AND GMT_MODIFIED <= ?";
+        return "SELECT DISTINCT DATA_ID, GROUP_ID, TENANT_ID FROM HIS_CONFIG_INFO WHERE OP_TYPE = 'D' AND GMT_MODIFIED >= ? AND GMT_MODIFIED <= ?";
     }
 
     @Override
     public String findConfigHistoryFetchRows() {
         return "SELECT NID,DATA_ID,GROUP_ID,TENANT_ID,APP_NAME,SRC_IP,SRC_USER,OP_TYPE,GMT_CREATE,GMT_MODIFIED FROM HIS_CONFIG_INFO "
-                + "WHERE DATA_ID = ? AND GROUP_ID = ? AND TENANT_ID = ? ORDER BY NID DESC";
-    }
-
-    public String pageFindConfigHistoryFetchRows(int pageNo, int pageSize) {
-        final int offset = (pageNo - 1) * pageSize;
-        final int limit = pageSize;
-        return  "SELECT NID,DATA_ID,GROUP_ID,TENANT_ID,APP_NAME,SRC_IP,SRC_USER,OP_TYPE,GMT_CREATE,GMT_MODIFIED FROM HIS_CONFIG_INFO "
-                + "WHERE DATA_ID = ? AND GROUP_ID = ? AND TENANT_ID = ? ORDER BY NID DESC  LIMIT " + offset + "," + limit;
+                + "WHERE DATA_ID = ? AND GROUP_ID = ? AND (TENANT_ID = ? OR TENANT_ID IS NULL) ORDER BY NID DESC";
     }
 
     @Override
@@ -55,7 +46,6 @@ public class HistoryConfigInfoMapperByDb2 extends AbstractMapper implements Hist
 
     @Override
     public String getDataSource() {
-        return DataSourceConstantExtension.DB2;
+        return DataSourceConstantExtension.ORACLE;
     }
-
 }

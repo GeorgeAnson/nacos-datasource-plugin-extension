@@ -43,3 +43,14 @@ io.github.georgeanson.impl.postgresql.TenantInfoMapperByPostgresql
 io.github.georgeanson.impl.postgresql.TenantCapacityMapperByPostgresql
 io.github.georgeanson.impl.postgresql.GroupCapacityMapperByPostgresql
 
+# Oracle
+io.github.georgeanson.impl.oracle.ConfigInfoAggrMapperByOracle
+io.github.georgeanson.impl.oracle.ConfigInfoBetaMapperByOracle
+io.github.georgeanson.impl.oracle.ConfigInfoMapperByOracle
+io.github.georgeanson.impl.oracle.ConfigInfoTagMapperByOracle
+io.github.georgeanson.impl.oracle.ConfigTagsRelationMapperByOracle
+io.github.georgeanson.impl.oracle.HistoryConfigInfoMapperByOracle
+io.github.georgeanson.impl.oracle.TenantInfoMapperByOracle
+io.github.georgeanson.impl.oracle.TenantCapacityMapperByOracle
+io.github.georgeanson.impl.oracle.GroupCapacityMapperByOracle
+

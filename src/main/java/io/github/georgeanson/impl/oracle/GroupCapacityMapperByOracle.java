@@ -1,19 +1,17 @@
-package io.github.georgeanson.impl.postgresql;
+package io.github.georgeanson.impl.oracle;
 
 import com.alibaba.nacos.plugin.datasource.constants.TableConstant;
-import io.github.georgeanson.constant.DataSourceConstantExtension;
 import com.alibaba.nacos.plugin.datasource.mapper.AbstractMapper;
 import com.alibaba.nacos.plugin.datasource.mapper.GroupCapacityMapper;
-
+import io.github.georgeanson.constant.DataSourceConstantExtension;
 
 /**
  * @Author Anson
- * @Create 2023-10-25
+ * @Create 2024-02-06
  * @Description <br/>
  */
 
-public class GroupCapacityMapperByPostgresql extends AbstractMapper implements GroupCapacityMapper {
-
+public class GroupCapacityMapperByOracle extends AbstractMapper implements GroupCapacityMapper {
     @Override
     public String insertIntoSelect() {
         return "INSERT INTO GROUP_CAPACITY (GROUP_ID, QUOTA, `USAGE`, `MAX_SIZE`, MAX_AGGR_COUNT, MAX_AGGR_SIZE,GMT_CREATE,"
@@ -59,7 +57,7 @@ public class GroupCapacityMapperByPostgresql extends AbstractMapper implements G
 
     @Override
     public String selectGroupInfoBySize() {
-        return "SELECT ID, GROUP_ID FROM GROUP_CAPACITY WHERE ID > ? LIMIT ?";
+        return "SELECT ID, GROUP_ID FROM GROUP_CAPACITY WHERE ID > ? ROWNUM > ?";
     }
 
     @Override
@@ -69,7 +67,6 @@ public class GroupCapacityMapperByPostgresql extends AbstractMapper implements G
 
     @Override
     public String getDataSource() {
-        return DataSourceConstantExtension.POSTGRESQL;
+        return DataSourceConstantExtension.ORACLE;
     }
-
 }

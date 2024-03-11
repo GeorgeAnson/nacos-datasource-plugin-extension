@@ -13,4 +13,6 @@ public class DataSourceConstantExtension extends DataSourceConstant {
     public static final String POSTGRESQL = "postgresql";
 
     public static final String DB2 = "db2";
+
+    public static final String ORACLE="oracle";
 }
