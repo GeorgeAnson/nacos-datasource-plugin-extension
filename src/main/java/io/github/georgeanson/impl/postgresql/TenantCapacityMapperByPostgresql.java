@@ -16,41 +16,41 @@ public class TenantCapacityMapperByPostgresql extends AbstractMapper implements 
 
     @Override
     public String incrementUsageWithDefaultQuotaLimit() {
-        return "UPDATE tenant_capacity SET `usage` = `usage` + 1, gmt_modified = ? WHERE tenant_id = ? AND `usage` <"
-                + " ? AND quota = 0";
+        return "UPDATE TENANT_CAPACITY SET `USAGE` = `USAGE` + 1, GMT_MODIFIED = ? WHERE TENANT_ID = ? AND `USAGE` <"
+                + " ? AND QUOTA = 0";
     }
 
     @Override
     public String incrementUsageWithQuotaLimit() {
-        return "UPDATE tenant_capacity SET `usage` = `usage` + 1, gmt_modified = ? WHERE tenant_id = ? AND `usage` < "
-                + "quota AND quota != 0";
+        return "UPDATE TENANT_CAPACITY SET `USAGE` = `USAGE` + 1, GMT_MODIFIED = ? WHERE TENANT_ID = ? AND `USAGE` < "
+                + "QUOTA AND QUOTA != 0";
     }
 
     @Override
     public String incrementUsage() {
-        return "UPDATE tenant_capacity SET `usage` = `usage` + 1, gmt_modified = ? WHERE tenant_id = ?";
+        return "UPDATE TENANT_CAPACITY SET `USAGE` = `USAGE` + 1, GMT_MODIFIED = ? WHERE TENANT_ID = ?";
     }
 
     @Override
     public String decrementUsage() {
-        return "UPDATE tenant_capacity SET `usage` = `usage` - 1, gmt_modified = ? WHERE tenant_id = ? AND `usage` > 0";
+        return "UPDATE TENANT_CAPACITY SET `USAGE` = `USAGE` - 1, GMT_MODIFIED = ? WHERE TENANT_ID = ? AND `USAGE` > 0";
     }
 
     @Override
     public String correctUsage() {
-        return "UPDATE tenant_capacity SET `usage` = (SELECT count(*) FROM config_info WHERE tenant_id = ?), "
-                + "gmt_modified = ? WHERE tenant_id = ?";
+        return "UPDATE TENANT_CAPACITY SET `USAGE` = (SELECT COUNT(*) FROM CONFIG_INFO WHERE TENANT_ID = ?), "
+                + "GMT_MODIFIED = ? WHERE TENANT_ID = ?";
     }
 
     @Override
     public String getCapacityList4CorrectUsage() {
-        return "SELECT id, tenant_id FROM tenant_capacity WHERE id>? LIMIT ?";
+        return "SELECT ID, TENANT_ID FROM TENANT_CAPACITY WHERE ID>? LIMIT ?";
     }
 
     @Override
     public String insertTenantCapacity() {
-        return "INSERT INTO tenant_capacity (tenant_id, quota, `usage`, `max_size`, max_aggr_count, max_aggr_size, "
-                + "gmt_create, gmt_modified) SELECT ?, ?, count(*), ?, ?, ?, ?, ? FROM config_info WHERE tenant_id=?;";
+        return "INSERT INTO TENANT_CAPACITY (TENANT_ID, QUOTA, `USAGE`, `MAX_SIZE`, MAX_AGGR_COUNT, MAX_AGGR_SIZE, "
+                + "GMT_CREATE, GMT_MODIFIED) SELECT ?, ?, COUNT(*), ?, ?, ?, ?, ? FROM CONFIG_INFO WHERE TENANT_ID=?";
     }
 
     @Override
