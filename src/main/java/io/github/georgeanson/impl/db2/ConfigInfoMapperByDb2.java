@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * @Author Anson
  * @Create 2023-10-25
- * @Description <br/>
+ * @Description ConfigInfo 表配置<br/>
  */
 
 public class ConfigInfoMapperByDb2 extends AbstractMapper implements ConfigInfoMapper {

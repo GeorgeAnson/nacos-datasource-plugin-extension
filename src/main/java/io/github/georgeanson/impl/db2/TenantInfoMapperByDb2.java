@@ -9,7 +9,7 @@ import com.alibaba.nacos.plugin.datasource.mapper.TenantInfoMapper;
 /**
  * @Author Anson
  * @Create 2023-10-25
- * @Description <br/>
+ * @Description TenantInfo 表配置 <br/>
  */
 
 public class TenantInfoMapperByDb2 extends AbstractMapper implements TenantInfoMapper {
