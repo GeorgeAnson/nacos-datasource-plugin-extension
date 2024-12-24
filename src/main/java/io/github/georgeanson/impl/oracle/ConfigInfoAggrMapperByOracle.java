@@ -25,7 +25,7 @@ public class ConfigInfoAggrMapperByOracle extends AbstractMapper implements Conf
     public String batchRemoveAggr(List<String> datumList) {
         final StringBuilder datumString = new StringBuilder();
         for (String datum : datumList) {
-            datumString.append('\'').append(datum).append("',");
+            datumString.append("'").append(datum).append("',");
         }
         datumString.deleteCharAt(datumString.length() - 1);
         return "DELETE FROM CONFIG_INFO_AGGE WHERE DATA_ID = ? AND GROUP_ID = ? AND (TENANT_ID = ? OR TENANT_ID IS NULL) AND DATUM_ID IN ("
