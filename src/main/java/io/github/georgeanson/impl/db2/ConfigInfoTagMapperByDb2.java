@@ -9,7 +9,7 @@ import com.alibaba.nacos.plugin.datasource.mapper.ConfigInfoTagMapper;
 /**
  * @Author Anson
  * @Create 2023-10-25
- * @Description <br/>
+ * @Description ConfigInfoTag 表配置<br/>
  */
 
 public class ConfigInfoTagMapperByDb2 extends AbstractMapper implements ConfigInfoTagMapper {

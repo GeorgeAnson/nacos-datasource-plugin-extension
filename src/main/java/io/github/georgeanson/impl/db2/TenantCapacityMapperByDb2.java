@@ -9,7 +9,7 @@ import com.alibaba.nacos.plugin.datasource.mapper.TenantCapacityMapper;
 /**
  * @Author Anson
  * @Create 2023-10-25
- * @Description <br/>
+ * @Description TenantCapacity 表配置 <br/>
  */
 
 public class TenantCapacityMapperByDb2 extends AbstractMapper implements TenantCapacityMapper {

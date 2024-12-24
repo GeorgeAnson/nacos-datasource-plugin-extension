@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @Author Anson
  * @Create 2023-10-25
- * @Description <br/>
+ * @Description ConfigInfoAggr 表配置 <br/>
  */
 
 public class ConfigInfoAggrMapperByDb2 extends AbstractMapper implements ConfigInfoAggrMapper {

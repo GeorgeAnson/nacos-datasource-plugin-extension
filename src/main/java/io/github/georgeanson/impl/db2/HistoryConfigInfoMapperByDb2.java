@@ -9,7 +9,7 @@ import com.alibaba.nacos.plugin.datasource.mapper.HistoryConfigInfoMapper;
 /**
  * @Author Anson
  * @Create 2023-10-25
- * @Description <br/>
+ * @Description HistoryConfigInfo 表配置 <br/>
  */
 
 public class HistoryConfigInfoMapperByDb2 extends AbstractMapper implements HistoryConfigInfoMapper {

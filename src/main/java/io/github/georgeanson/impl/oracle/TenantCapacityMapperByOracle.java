@@ -21,7 +21,7 @@ public class TenantCapacityMapperByOracle extends AbstractMapper implements Tena
     @Override
     public String incrementUsageWithQuotaLimit() {
         return "UPDATE TENANT_CAPACITY SET `USAGE` = `USAGE` + 1, GMT_MODIFIED = ? WHERE (TENANT_ID = ? OR TENANT_ID IS NULL) AND `USAGE` < "
-                + "QUOTA AND QUOTA != 0";
+                + "QUOTA AND QUOTA <> 0";
     }
 
     @Override

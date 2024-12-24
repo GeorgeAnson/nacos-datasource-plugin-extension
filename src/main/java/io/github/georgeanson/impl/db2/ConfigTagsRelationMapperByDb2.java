@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * @Author Anson
  * @Create 2023-10-25
- * @Description <br/>
+ * @Description ConfigTagsRelation 表配置 <br/>
  */
 
 public class ConfigTagsRelationMapperByDb2 extends AbstractMapper implements ConfigTagsRelationMapper {

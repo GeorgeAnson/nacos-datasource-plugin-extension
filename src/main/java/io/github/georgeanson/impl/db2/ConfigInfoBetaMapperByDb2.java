@@ -8,7 +8,7 @@ import com.alibaba.nacos.plugin.datasource.mapper.ConfigInfoBetaMapper;
 /**
  * @Author Anson
  * @Create 2023-10-25
- * @Description <br/>
+ * @Description ConfigInfoBeta 表配置 <br/>
  */
 
 public class ConfigInfoBetaMapperByDb2 extends AbstractMapper implements ConfigInfoBetaMapper {
